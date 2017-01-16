@@ -1,19 +1,43 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@model Dictionary<string, List<mvc201701.Models.Misc.ControllerActionViewModel>>
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <style>
+        html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        a:link, a:visited, a:hover, a:active {
+            color: black;
+        }
+
+        .method {
+            margin-bottom: 10px;            
+        }
+
+        .attribute {
+            
+        }
+    </style>
 </head>
 <body>
-<ul>
-    <li><a href="/module03/index">Module03 index</a></li>
-    <li><a href="/module03/index2">Module03 index2</a></li>
-</ul>
+    <h1>MVC Course</h1>
+    <hr />    
+    @foreach (var item in Model)
+    {
+        <h3>@(item.Key+"Controller") </h3>
+        <div>
+            @foreach (var a in item.Value)
+            {
+                <text>@if (a.Attributes != "")
+                {<div class="attribute">[@a.Attributes.Replace(",",", ")]</div>}</text>
+                <div class="method">
+                    @Html.ActionLink(a.ReturnType + " " + a.ActionName + "(" + a.Arguments.Replace(",", ", ") + ")", a.ActionName, a.ControllerName)
+                </div>
+            }
+        </div>
+    }
 </body>
 </html>
