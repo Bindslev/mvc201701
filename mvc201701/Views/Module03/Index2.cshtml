@@ -22,7 +22,8 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
     
-            <div class="form-group">
+            <!-- vi kan godt overskrive... det er bare autogenereret -->
+            <div>
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" value="@Model.Name" />
             </div>
