@@ -5,12 +5,13 @@ using System.Web;
 
 namespace mvc201701.Models.Module03
 {
-    public class PersonHelper : IPersonHelper
+    public class PersonHelperMock : IPersonHelper
     {
         public Person GetPerson(int id)
         {
-            Person p = new Person() { Id = id, Name = "Test", BirthDate = DateTime.Now };
+            Person p = new Person() { Id = id, Name = "MOCK MOCK", BirthDate = DateTime.Now };
             return p;
+
         }
     }
 }
