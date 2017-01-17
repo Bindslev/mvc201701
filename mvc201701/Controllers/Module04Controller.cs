@@ -13,10 +13,11 @@ namespace mvc201701.Controllers
         
         public ContentResult Content()
         {
-            ContentResult c = new ContentResult();
-            c.ContentType = "application/vnd.ms-excel";
-            c.Content = "1,5,1,5";
-            return c;
+            //ContentResult c = new ContentResult();
+            //c.ContentType = "application/vnd.ms-excel";
+            //c.Content = "1,5,1,5";
+            //return c;
+            return Content("text");
         }
 
         public ActionResult Json()
@@ -38,7 +39,8 @@ namespace mvc201701.Controllers
 
         public ActionResult Status()
         {
-            HttpStatusCodeResult h = new HttpStatusCodeResult(500, "FEJL");
+            HttpStatusCodeResult h 
+                = new HttpStatusCodeResult(500, "FEJL");
             return h;
         }
 

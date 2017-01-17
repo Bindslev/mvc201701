@@ -42,15 +42,15 @@
 
         <div class="controller" id="@item.Key">
             @(item.Key + "Controller")
-        @foreach (var a in item.Value)
-        {
-            <text>@if (a.Attributes != "")
-            {<div class="attribute">[@a.Attributes.Replace(",", ", ")]</div>}</text>
-            <div class="method">
-                @Html.ActionLink(a.ReturnType + " " + a.ActionName + "(" + a.Arguments.Replace(",", ", ") + ")", a.ActionName, a.ControllerName)
-            </div>
-        }
-    </div>
+            @foreach (var a in item.Value)
+            {
+                <text>@if (a.Attributes != "")
+                {<div class="attribute">[@a.Attributes.Replace(",", ", ")]</div>}</text>
+                <div class="method">
+                    @Html.ActionLink(a.ReturnType + " " + a.ActionName + "(" + a.Arguments.Replace(",", ", ") + ")", a.ActionName, a.ControllerName)
+                </div>
+            }
+        </div>
     }
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script>
