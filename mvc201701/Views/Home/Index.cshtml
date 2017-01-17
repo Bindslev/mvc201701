@@ -9,35 +9,62 @@
         html {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         a:link, a:visited, a:hover, a:active {
             color: black;
         }
 
+        .controller {
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .method {
-            margin-bottom: 10px;            
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: normal;
+            color: red;
         }
 
         .attribute {
-            
+            font-size: 1rem;
+            font-weight: normal;
         }
     </style>
 </head>
 <body>
     <h1>MVC Course</h1>
-    <hr />    
+    <hr />
     @foreach (var item in Model)
     {
-        <h3>@(item.Key+"Controller") </h3>
-        <div>
-            @foreach (var a in item.Value)
-            {
-                <text>@if (a.Attributes != "")
-                {<div class="attribute">[@a.Attributes.Replace(",",", ")]</div>}</text>
-                <div class="method">
-                    @Html.ActionLink(a.ReturnType + " " + a.ActionName + "(" + a.Arguments.Replace(",", ", ") + ")", a.ActionName, a.ControllerName)
-                </div>
-            }
-        </div>
+
+
+        <div class="controller" id="@item.Key">
+            @(item.Key + "Controller")
+        @foreach (var a in item.Value)
+        {
+            <text>@if (a.Attributes != "")
+            {<div class="attribute">[@a.Attributes.Replace(",", ", ")]</div>}</text>
+            <div class="method">
+                @Html.ActionLink(a.ReturnType + " " + a.ActionName + "(" + a.Arguments.Replace(",", ", ") + ")", a.ActionName, a.ControllerName)
+            </div>
+        }
+    </div>
     }
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script>
+
+        $(".method, .attribute").hide();
+        if (localStorage.getItem("controller") != undefined) {
+            $("#" + localStorage.getItem("controller")).find(".method, .attribute").show();
+        }
+
+        $(".controller").click(function () {
+            $(".method, .attribute").hide();
+            localStorage.setItem("controller", $(this).attr("id"));
+            $(this).find(".method, .attribute").toggle();
+        })
+    </script>
 </body>
 </html>

@@ -43,7 +43,7 @@ namespace mvc201701.Controllers
         }
 
 
-        public ViewResult view()
+        public ViewResult View1()
         {
             return View("view", new Person());
         }
@@ -64,7 +64,7 @@ namespace mvc201701.Controllers
             return View();
         }
 
-        public ActionResult an()
+        public ActionResult Expando()
         {
             //var o = new { name = "test", age = 10 };
             dynamic o = new ExpandoObject();
@@ -80,7 +80,7 @@ namespace mvc201701.Controllers
         public void Test() {
 
             Module04Controller c = new Module04Controller();
-            var r = c.view();
+            var r = c.View1();
             if (Convert.ToInt32(r.Model)==4) {
             
                 //ok
