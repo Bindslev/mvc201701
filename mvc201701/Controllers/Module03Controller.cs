@@ -14,7 +14,7 @@ namespace mvc201701.Controllers
 
         public Module03Controller()
         {
-            // fattigmands DI
+            // fattigmands DI....
             // hvis det er test så
             //repository = new mvc201701.Models.Module03.PersonHelperMock();            
             // else
