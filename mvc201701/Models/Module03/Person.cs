@@ -5,6 +5,7 @@ using System.Web;
 
 namespace mvc201701.Models.Module03
 {
+    [Serializable]
     public class Person
     {
         public int Id { get; set; }

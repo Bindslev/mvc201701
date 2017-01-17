@@ -105,8 +105,14 @@
     <Content Include="Views\Module04\test.cshtml" />
     <Content Include="Views\Module04\Expando.cshtml" />
     <Content Include="Views\Module04\TestViewBag.cshtml" />
+    <Content Include="Views\Module04\Model1.cshtml" />
+    <Content Include="Views\Module04\Cache.cshtml" />
+    <Content Include="Views\Module04\PartialViewTest.cshtml" />
+    <Content Include="Views\Module04\Klokken.cshtml" />
+    <Content Include="Views\Module04\Klokken2.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResultMethods\XmlResult.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Module03Controller.cs" />

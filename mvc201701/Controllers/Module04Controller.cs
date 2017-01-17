@@ -1,4 +1,5 @@
-﻿using mvc201701.Models.Module03;
+﻿using mvc201701.ActionResultMethods;
+using mvc201701.Models.Module03;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -24,6 +25,14 @@ namespace mvc201701.Controllers
         {
             Person p = new Person() { Id = 1, Name = "lk ld" };
             return Json(p, JsonRequestBehavior.AllowGet);
+        }
+
+        // EGEN XmlAction
+        public ActionResult Xml()
+        {
+            Person p = new Person() { Id = 1, Name = "lk ld" };
+            var x = new XmlActionResult<Person>() { Data = p };
+            return x;
         }
 
         public ActionResult Redirect()
@@ -75,6 +84,57 @@ namespace mvc201701.Controllers
             return View(o);
         }
 
+        [HttpGet]
+        public ActionResult Model1(string test, int? id)
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult Model1(string name, int? number, Input i)
+        {
+            return View();
+        }
+
+        [OutputCache(Duration = 5)]
+        public ActionResult Cache()
+        {
+            return View();
+        }
+
+        public ActionResult PartialViewTest()
+        {
+            return View();
+        }
+
+        //[OutputCache(Duration = 10)]
+        //[ChildActionOnly]
+        public PartialViewResult Klokken()
+        {
+            // burde være model.....
+            ViewBag.Kl = DateTime.Now.ToLongTimeString();
+            return PartialView();
+        }
+
+        //[OutputCache(Duration = 5)]
+        [ChildActionOnly]
+        public PartialViewResult Klokken2()
+        {
+            // burde være model.....
+            ViewBag.Kl = DateTime.Now.Millisecond.ToString();
+            return PartialView();
+        }
+
+
+        [NonAction]
+        public void Test() {
+
+        }
+    }
+
+    public class Input {
+        public int Number2 { get; set; }
+        public bool IsAdmin { get; set; }
     }
 
     public class MockTest {
