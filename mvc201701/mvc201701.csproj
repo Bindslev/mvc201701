@@ -141,6 +141,7 @@
     <Compile Include="Controllers\Module04Controller.cs" />
     <Compile Include="Controllers\Module05Controller.cs" />
     <Compile Include="Controllers\Module06Controller.cs" />
+    <Compile Include="Controllers\Module07Controller.cs" />
     <Compile Include="Controllers\SalgController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -184,6 +185,7 @@
     <Content Include="Views\Shared\TestPartial.cshtml" />
     <Content Include="Views\Shared\master.cshtml" />
     <Content Include="Views\Module06\layouttest.cshtml" />
+    <Content Include="Views\Module07\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

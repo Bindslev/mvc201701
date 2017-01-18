@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Ajax test</h1>
+
+    <input type="button" value="Click" id="btn" />
+    <hr />
+    <ul></ul>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <!-- IKKE HER men kl er 16 -->
+    <script>
+
+        $("#btn").click(function () {
+
+            $.getJSON("/Module07/GetPersons", null, function (data) {
+                var ul = $("ul"); //.empty();
+                for (var i = 0; i < data.length; i++) {
+                    var li = $("<li />").html(data[i].Name);
+                    ul.append(li);
+                }
+            });
+            
+        });
+
+
+    </script>
+</body>
+</html>
