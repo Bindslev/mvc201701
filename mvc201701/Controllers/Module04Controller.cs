@@ -1,5 +1,6 @@
 ﻿using mvc201701.ActionResultMethods;
 using mvc201701.Models.Module03;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -9,9 +10,12 @@ using System.Web.Mvc;
 
 namespace mvc201701.Controllers
 {
+    //[HandleError]
     public class Module04Controller : Controller
     {
-        
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public ContentResult Content()
         {
             //ContentResult c = new ContentResult();
@@ -129,6 +133,38 @@ namespace mvc201701.Controllers
         [NonAction]
         public void Test() {
 
+        }
+
+        //[HandleError]
+        public ActionResult ErrorTest()
+        {
+            object o = null;
+            o.ToString();
+
+            return View();
+        }
+
+        public ActionResult LogTest()
+        {
+            logger.Debug("Enter");
+
+            try
+            {
+                int i = 1;
+                logger.Debug("Get person {0}", i);
+                var h = new mvc201701.Models.Module03.PersonHelper();
+                var p = h.GetPersonError(i);
+                logger.Debug("Person {0} ok...", i);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                
+            }
+
+
+            logger.Debug("Exit");
+            return View();
         }
     }
 

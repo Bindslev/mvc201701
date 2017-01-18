@@ -12,5 +12,11 @@ namespace mvc201701.Models.Module03
             Person p = new Person() { Id = id, Name = "Test", BirthDate = DateTime.Now };
             return p;
         }
+        public Person GetPersonError(int id)
+        {
+            object p = null;
+            p.ToString();
+            return null;
+        }
     }
 }
