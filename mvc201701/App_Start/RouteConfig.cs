@@ -18,6 +18,22 @@ namespace mvc201701
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            // constraints: new { id = @"\d+" }
+
+            //routes.MapMvcAttributeRoutes();
+            //// Meget simpel men effektiv route
+
+            ////    routes.MapRoute(
+            ////    name: "S1",
+            ////    url: "{action}",
+            ////    defaults: new { controller = "Home", action = "Index" }
+            ////);
+
+            //routes.MapRoute(
+            //    name: "Salg",
+            //    url: "salg/kunder/{aar}/{mdr}",
+            //    defaults: new { controller = "salg", action = "Index" }
+            //);
         }
     }
 }

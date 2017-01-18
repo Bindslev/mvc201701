@@ -146,7 +146,8 @@ namespace mvc201701.Controllers
 
         public ActionResult LogTest()
         {
-            logger.Debug("Enter");
+
+
 
             try
             {
@@ -161,8 +162,6 @@ namespace mvc201701.Controllers
                 logger.Error(ex);
                 
             }
-
-
             logger.Debug("Exit");
             return View();
         }

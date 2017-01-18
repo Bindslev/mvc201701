@@ -17,7 +17,7 @@ namespace mvc201701
             logger.Debug("App start");
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            GlobalFilters.Filters.Add(new HandleErrorAttribute());
+            //GlobalFilters.Filters.Add(new HandleErrorAttribute());
         }
 
         protected void Application_End()
