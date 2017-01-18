@@ -34,7 +34,14 @@
     </style>
 </head>
 <body>
+
+    @{
+        var d = DateTime.Now;
+        var formatDate = d.ToLongDateString();
+    }
+
     <h1>MVC Course</h1>
+    
     <hr />
     @foreach (var item in Model)
     {
@@ -44,8 +51,8 @@
             @(item.Key + "Controller")
             @foreach (var a in item.Value)
             {
-                <text>@if (a.Attributes != "")
-                {<div class="attribute">[@a.Attributes.Replace(",", ", ")]</div>}</text>
+                if (a.Attributes != "")
+                {<div class="attribute">[@a.Attributes.Replace(",", ", ")]</div>}
                 <div class="method">
                     @Html.ActionLink(a.ReturnType + " " + a.ActionName + "(" + a.Arguments.Replace(",", ", ") + ")", a.ActionName, a.ControllerName)
                 </div>

@@ -1,0 +1,47 @@
+﻿@model mvc201701.Models.Module03.Person
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @Model.Name
+    </div>
+    @Html.ActionLink("Link", "index", "home")
+    @Html.RouteLink("link", "default", new { controller = "home", id = 2 })
+
+    <form action="/" method="post"></form>
+
+    @using (Html.BeginForm())
+    {
+
+        @Html.Display("Name")
+
+        @Html.DisplayName("Name")
+        @Html.DisplayNameFor(model => model.Name)
+
+        @Html.LabelFor(model => model.Name)
+        <hr />
+        @Html.EditorFor(model => model.Name)
+        @Html.EditorFor(model => model.BirthDate)
+        @Html.EditorFor(model => model.TestBool)
+
+        @Html.EditorForModel()
+
+        <hr />
+        @Html.CheckBoxFor(model => model.TestBool, new { @class = "red" })
+        @Html.EnumDropDownListFor(model => model.Gender)
+        <hr />
+        <img src="@Url.Action("index","home")" alt="Alternate Text" />
+
+        @Html.Partial("testpartial")
+        @Html.Partial("testpartial")
+        @Html.Partial("testpartial")
+
+    }
+
+</body>
+</html>

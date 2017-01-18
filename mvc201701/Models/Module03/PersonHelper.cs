@@ -9,7 +9,7 @@ namespace mvc201701.Models.Module03
     {
         public Person GetPerson(int id)
         {
-            Person p = new Person() { Id = id, Name = "Test", BirthDate = DateTime.Now };
+            Person p = new Person() { Id = id, Gender= Gender.Male, Name = "Test", BirthDate = DateTime.Now };
             return p;
         }
         public Person GetPersonError(int id)

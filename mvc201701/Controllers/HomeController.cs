@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,6 +10,7 @@ namespace mvc201701.Controllers
 {
     public class HomeController : Controller
     {
+
         [Route("~/")]
         public ActionResult Index()
         {
@@ -16,6 +18,11 @@ namespace mvc201701.Controllers
             return View(grp);
         }
 
+        public JsonResult GetModel()
+        {
+            var grp = mvc201701.Models.Misc.ControllerActionViewModel.GetActionMethods();
+            return Json(grp, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

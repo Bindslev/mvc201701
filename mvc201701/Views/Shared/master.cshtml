@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>master</title>
+</head>
+<body>
+    <h1>My site</h1>
+    <hr />
+    <table>
+        <tr>
+            <td>
+                @RenderSection("menu", false)
+            </td>
+            <td>
+                @RenderBody()
+            </td>
+        </tr>
+    </table>
+    
+    <hr />
+    <h4>Footer</h4>
+</body>
+</html>
