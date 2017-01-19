@@ -1,0 +1,43 @@
+﻿@model Peter.Models.HomeIndexViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+    <h3>Person object, part of HomeIndexViewModel</h3>
+    <ul>
+        <li>@Model.Person.Name</li>
+        <li>@Model.Person.Gender</li>
+        <li>@Model.Person.Registered</li>
+    </ul>                                                           
+    <h3>Place object, part of HomeIndexViewModel</h3>
+    <ul>
+        <li>@Model.Place.Planet</li>
+        <li>@Model.Place.Country</li>
+        <li>@Model.Place.City</li>
+    </ul>
+
+    <form action="~/" method="post">
+        <h3>Gets a person by his id made in the associated repository</h3>
+        <label>Get a person by id:</label>
+        <input type="number" name="id" value="1" style="width:30px"> (There's only 2 Persons, submitting 3 will return an exception and send you to a custom error page)
+        <br />
+        <h3>Choose whether to use Mock repository or Prod repository</h3>
+        Debug? <input type="checkbox" name="debugable">
+        <br />
+        <h3>Submit(partialview) as a post to the index method in HomeController</h3>
+        @Html.Partial("PartialViews/_SubmitButton")
+        @Html.Partial("PartialViews/_SubmitButton")
+        @Html.Partial("PartialViews/_SubmitButton")
+    </form>
+    
+</body>
+</html>
